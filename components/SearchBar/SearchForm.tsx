@@ -5,7 +5,7 @@ import { translateFunc } from "./translateFunc";
 interface SearchFormProps {}
 
 const SearchForm: FunctionComponent<SearchFormProps> = () => {
-  const [caseName, setCaseName] = useState("");
+  const [caseName, setCaseName] = useState("I 2 C 24/97");
   const inputRef = useRef<HTMLInputElement>(null);
   return (
     <div className="w-full">
