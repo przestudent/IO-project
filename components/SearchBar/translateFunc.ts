@@ -36,7 +36,7 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
   const facultyNumber =
     formattedString.match(romanPattern)?.slice(1, 5).join("") ?? null;
   currIdxPointer = facultyNumber?.length ?? -1;
-  if (!isValid || facultyNumber === "") return [["Podaj", "Numer"]];
+  if (!isValid || facultyNumber === "") return [["Podaj Numer", ""]];
   result.push([`Wydział ${facultyNumber}`, "Poprawny"]);
   if (checkIfShouldReturn(currIdxPointer, formattedStringSpaceless)) {
     return result;
@@ -47,7 +47,7 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
 
   if (isSection) {
     currIdxPointer++;
-    result.push([`Sekcja ${possibleSection}`, "poprawna"]);
+    result.push([`Sekcja ${possibleSection}`, "Poprawna"]);
     if (checkIfShouldReturn(currIdxPointer, formattedStringSpaceless)) {
       return result;
     }
@@ -69,7 +69,7 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
   }
 
   if (reporytoriumCodeFound) {
-    result.push([`reporytorium ${reporytoriumCode}`, "poprawne"]);
+    result.push([`Reporytorium ${reporytoriumCode}`, "poprawne"]);
     if (
       checkIfShouldReturn(
         currIdxPointer + reporytoriumCode.length,
@@ -79,7 +79,7 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
       return result;
     }
   } else {
-    result.push([`reporytorium ${reporytoriumCode}`, "nie poprawne!"]);
+    result.push([`Reporytorium ${reporytoriumCode}`, "nie poprawne!"]);
     return result;
   }
   currIdxPointer += reporytoriumCode.length;
@@ -91,11 +91,11 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
     )
   ) {
     result.push([
-      `numer porządkowy ${formattedStringSpaceless.substring(
+      `Numer porządkowy ${formattedStringSpaceless.substring(
         currIdxPointer,
         currIdxPointer + 2,
       )}`,
-      "poprawne",
+      "Poprawny",
     ]);
 
     currIdxPointer += 2;
@@ -117,16 +117,16 @@ export const translateFunc = (inputString: string): Array<[string, string]> => {
     )
   ) {
     result.push([
-      `rok zalozenia akt ${formattedStringSpaceless.substring(
+      `Rok zalozenia akt ${formattedStringSpaceless.substring(
         currIdxPointer + 1,
         currIdxPointer + 3,
       )}`,
-      "poprawne",
+      "Poprawny",
     ]);
   } else {
     result.push([
-      `rok zalozenia akt ${formattedStringSpaceless.substring(currIdxPointer)}`,
-      "nie poprawny!",
+      `Rok zalozenia akt ${formattedStringSpaceless.substring(currIdxPointer)}`,
+      "Nie poprawny!",
     ]);
   }
 
